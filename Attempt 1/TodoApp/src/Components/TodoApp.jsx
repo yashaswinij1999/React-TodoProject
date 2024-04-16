@@ -30,7 +30,6 @@ export default function TodoApp() {
     const toggled = todos.map((el) =>
       el.id === todoId ? { ...el, completed: !el.completed } : el
     );
-    console.log(toggled);
     setTodos(toggled);
   }
 
