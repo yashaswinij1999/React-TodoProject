@@ -1,7 +1,7 @@
 import { List, Paper } from "@mui/material";
 import TodoItem from "./TodoItem";
 
-export default function TodoList({ todos, deleteTodo, toggleTodo }) {
+export default function TodoList({ todos, deleteTodo, toggleTodo, editTodo }) {
   return (
     <Paper>
       <List>
@@ -13,6 +13,7 @@ export default function TodoList({ todos, deleteTodo, toggleTodo }) {
             completed={el.completed}
             deleteTodo={deleteTodo}
             toggleTodo={toggleTodo}
+            editTodo={editTodo}
           />
         ))}
       </List>

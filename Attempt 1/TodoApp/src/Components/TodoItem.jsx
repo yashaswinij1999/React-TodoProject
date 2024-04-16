@@ -6,6 +6,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
 import EditIcon from "@mui/icons-material/Edit";
 import useToggle from "../Hooks/useToggle";
+import EditForm from "./EditForm";
 
 export default function TodoItem({
   id,
@@ -13,13 +14,14 @@ export default function TodoItem({
   completed,
   deleteTodo,
   toggleTodo,
+  editTodo,
 }) {
   const [isEditing, toggleIsEditing] = useToggle(false);
 
   return (
     <ListItem>
       {isEditing ? (
-        <h1>Editing</h1>
+        <EditForm id={id} task={task} editTodo={editTodo} />
       ) : (
         <>
           <Checkbox
