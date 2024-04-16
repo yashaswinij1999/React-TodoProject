@@ -26,6 +26,12 @@ export default function TodoApp() {
     setTodos(updatedTodo);
   }
 
+  function toggleTodo(todoId) {
+    const toggled = todos.map((el) => {
+      el.id === todoId ? { ...todos, completed: !el.completed } : todos;
+    });
+    console.log(toggled);
+  }
 
   return (
     <Paper
@@ -45,7 +51,11 @@ export default function TodoApp() {
       <Grid container justifyContent={"center"} style={{ marginTop: "1rem" }}>
         <Grid item xs={11} md={8} lg={4}>
           <TodoForm addTodo={addTodo} />
-          <TodoList todos={todos} deleteTodo={deleteTodo} />
+          <TodoList
+            todos={todos}
+            deleteTodo={deleteTodo}
+            toggleTodo={toggleTodo}
+          />
         </Grid>
       </Grid>
     </Paper>

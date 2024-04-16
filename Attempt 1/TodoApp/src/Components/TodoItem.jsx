@@ -6,12 +6,25 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
 import EditIcon from "@mui/icons-material/Edit";
 
-export default function TodoItem({ id, task, completed, deleteTodo }) {
+export default function TodoItem({
+  id,
+  task,
+  completed,
+  deleteTodo,
+  toggleTodo,
+}) {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   return (
     <ListItem>
-      <Checkbox {...label} tabIndex={-1} checked={completed} />
+      <Checkbox
+        {...label}
+        tabIndex={-1}
+        checked={completed}
+        onClick={() => {
+          toggleTodo(id);
+        }}
+      />
       <ListItemText
         style={{
           textDecoration: completed ? "line-through" : "none",
