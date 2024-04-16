@@ -15,7 +15,18 @@ export default function TodoApp() {
     { id: 3, task: "clean the floor", completed: false },
   ];
 
-  const [todos, setTodos] = React.useState(data);
+  const [todos, setTodos] = React.useState(() => {
+    const todos = JSON.parse(localStorage.getItem("todos")) || data;
+    console.log(todos);
+    return todos;
+  });
+
+  React.useEffect(() => {
+    function setItem() {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+    setItem();
+  }, [todos]);
 
   function addTodo(newTodo) {
     setTodos([...todos, { id: uuidv4(), task: newTodo, completed: false }]);

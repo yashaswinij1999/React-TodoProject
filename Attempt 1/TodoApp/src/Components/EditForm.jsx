@@ -12,8 +12,14 @@ export default function EditForm({ id, task, editTodo }) {
           editTodo(id, state);
           reset();
         }}
+        style={{ margin: "1rem" }}
       >
-        <TextField value={state} onChange={handleChange} fullWidth />
+        <TextField
+          value={state}
+          onChange={handleChange}
+          fullWidth={true}
+          autoFocus={true}
+        />
       </form>
     </>
   );
