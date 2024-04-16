@@ -14,19 +14,17 @@ export default function TodoForm({ addTodo }) {
   };
 
   return (
-    <>
-      <Paper style={{ margin: "1rem 0", padding: "0 1rem" }} elevation={6}>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            id="standard-basic"
-            variant="standard"
-            value={state}
-            onChange={handleChange}
-            label="add Todo"
-            fullWidth
-          />
-        </form>
-      </Paper>
-    </>
+    <Paper style={{ margin: "1rem 0", padding: "0 1rem" }} elevation={6}>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          id="standard-basic"
+          variant="standard"
+          value={state}
+          onChange={handleChange}
+          label="add Todo"
+          fullWidth
+        />
+      </form>
+    </Paper>
   );
 }

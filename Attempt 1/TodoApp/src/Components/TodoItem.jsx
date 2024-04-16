@@ -10,32 +10,28 @@ export default function TodoItem({ id, task, completed, deleteTodo }) {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   return (
-    <>
-      <>
-        <ListItem>
-          <Checkbox {...label} tabIndex={-1} checked={completed} />
-          <ListItemText
-            style={{
-              textDecoration: completed ? "line-through" : "none",
-            }}
-          >
-            {task}
-          </ListItemText>
-          <ListItemSecondaryAction>
-            <IconButton
-              aria-label="Delete"
-              onClick={() => {
-                deleteTodo(id);
-              }}
-            >
-              <DeleteIcon />
-            </IconButton>
-            <IconButton aria-label="Edit">
-              <EditIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-      </>
-    </>
+    <ListItem>
+      <Checkbox {...label} tabIndex={-1} checked={completed} />
+      <ListItemText
+        style={{
+          textDecoration: completed ? "line-through" : "none",
+        }}
+      >
+        {task}
+      </ListItemText>
+      <ListItemSecondaryAction>
+        <IconButton
+          aria-label="Delete"
+          onClick={() => {
+            deleteTodo(id);
+          }}
+        >
+          <DeleteIcon />
+        </IconButton>
+        <IconButton aria-label="Edit">
+          <EditIcon />
+        </IconButton>
+      </ListItemSecondaryAction>
+    </ListItem>
   );
 }
