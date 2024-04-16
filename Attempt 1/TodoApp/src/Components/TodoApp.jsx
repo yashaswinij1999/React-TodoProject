@@ -8,13 +8,13 @@ import TodoForm from "./TodoForm";
 import Grid from "@mui/material/Grid";
 import { v4 as uuidv4 } from "uuid";
 
-const data = [
-  { id: uuidv4(), task: "buy milk", completed: true },
-  { id: uuidv4(), task: "buy groceries", completed: false },
-  { id: uuidv4(), task: "clean the floor", completed: false },
-];
-
 export default function TodoApp() {
+  const data = [
+    { id: 1, task: "buy milk", completed: true },
+    { id: 2, task: "buy groceries", completed: false },
+    { id: 3, task: "clean the floor", completed: false },
+  ];
+
   const [todos, setTodos] = React.useState(data);
 
   function addTodo(newTodo) {
@@ -27,10 +27,11 @@ export default function TodoApp() {
   }
 
   function toggleTodo(todoId) {
-    const toggled = todos.map((el) => {
-      el.id === todoId ? { ...todos, completed: !el.completed } : todos;
-    });
+    const toggled = todos.map((el) =>
+      el.id === todoId ? { ...el, completed: !el.completed } : el
+    );
     console.log(toggled);
+    setTodos(toggled);
   }
 
   return (

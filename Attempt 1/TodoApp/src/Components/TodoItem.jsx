@@ -13,12 +13,9 @@ export default function TodoItem({
   deleteTodo,
   toggleTodo,
 }) {
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
   return (
     <ListItem>
       <Checkbox
-        {...label}
         tabIndex={-1}
         checked={completed}
         onClick={() => {
