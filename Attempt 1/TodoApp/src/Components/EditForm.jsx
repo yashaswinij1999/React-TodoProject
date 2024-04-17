@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import useForm from "../Hooks/useForm";
 
-export default function EditForm({ id, task, editTodo }) {
+export default function EditForm({ id, task, editTodo, toggleEditForm }) {
   const [state, handleChange, reset] = useForm(task);
 
   return (
@@ -11,6 +11,7 @@ export default function EditForm({ id, task, editTodo }) {
           e.preventDefault();
           editTodo(id, state);
           reset();
+          toggleEditForm();
         }}
         style={{ margin: "1rem" }}
       >

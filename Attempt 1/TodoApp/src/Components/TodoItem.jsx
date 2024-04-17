@@ -21,7 +21,12 @@ export default function TodoItem({
   return (
     <ListItem>
       {isEditing ? (
-        <EditForm id={id} task={task} editTodo={editTodo} />
+        <EditForm
+          id={id}
+          task={task}
+          editTodo={editTodo}
+          toggleEditForm={toggleIsEditing}
+        />
       ) : (
         <>
           <Checkbox
