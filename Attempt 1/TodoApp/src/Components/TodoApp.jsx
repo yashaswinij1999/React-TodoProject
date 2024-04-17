@@ -15,19 +15,13 @@ export default function TodoApp() {
     { id: 3, task: "clean the floor", completed: false },
   ];
 
-  const [todos, addTodo, deleteTodo, toggleTodo, editTodo] = useTodoState(
-    () => {
-      const todos = JSON.parse(localStorage.getItem("todos")) || data;
-      console.log(todos);
-      return todos;
-    }
-  );
+  const initialValue = JSON.parse(localStorage.getItem("todos") || data);
+
+  const { todos, addTodo, deleteTodo, toggleTodo, editTodo } =
+    useTodoState(initialValue);
 
   React.useEffect(() => {
-    function setItem() {
-      localStorage.setItem("todos", JSON.stringify(todos));
-    }
-    setItem();
+    localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   return (
